@@ -4,18 +4,21 @@ import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 
 import links from './links.js';
+import type { Recipe } from '../src/lib/recipes/types.js';
+
+const pwd = dirname(process.argv[1]);
 
 const argv = yargs(process.argv.slice(2))
     .option('output', {
         alias: 'o',
-        default: './data',
+        type: 'string',
         demandOption: true
     })
     .parseSync();
 
 const downloadHtml = async (link: string) => {
     const filename = join(
-        argv.output,
+        pwd,
         '.cache',
         link.replace(/http(s)?:\/\//, '').replace(/\/$/, '') + '.html'
     );
@@ -43,19 +46,6 @@ const downloadHtml = async (link: string) => {
     }
 };
 
-type Recipe = {
-    title: string;
-    source: string;
-    image?: string;
-    ingredients: {
-        title: string;
-        amount?: number;
-        unit?: string;
-    }[];
-    instruction: string;
-    description?: string;
-};
-
 const parseTuxedono = (link: string, html: string): Recipe => {
     const document = parse(html);
     const ingredientsLists = document.querySelectorAll('div.recipe__recipe > ul ');
@@ -70,7 +60,7 @@ const parseTuxedono = (link: string, html: string): Recipe => {
             if (!amount) return undefined;
 
             let sum = 0;
-            for (let p of amount) {
+            for (const p of amount) {
                 const int = parseInt(p);
                 if (!isNaN(int)) {
                     sum += int;
@@ -102,6 +92,8 @@ const parseTuxedono = (link: string, html: string): Recipe => {
                 .replace('dashes', '')
                 .replace('dash', '')
                 .replace(/(, )?for garnish/, '')
+                .replace(/(, )?for muddling/, '')
+                .replace(/passionfruit/, 'passion fruit')
                 .trim(),
             amount: amounts.at(index),
             unit: ingredient.includes('dashes') || ingredient.includes('dash') ? 'dash' : units.at(index)
@@ -122,28 +114,43 @@ const parseTuxedono = (link: string, html: string): Recipe => {
 
 const parseAwedomedrinks = (link: string, html: string): Recipe => {
     const document = parse(html);
-    const title = document.querySelector('h1').text.trim()
-    const instruction = document.querySelector('footer.blockquote-footer').parentNode.childNodes.slice(0, -2).map((node) =>
-        node.textContent.replace(/\n/g, '').replace(/ +/g, ' ').replace(' .', '.').trim()
-    )
-        .filter(l => l)
-        .join('\n')
-    const image = new URL(document.querySelector('img').getAttribute('src').replace(/\.jpg.+/g, '.jpg'), new URL(link)).toString()
-    const ingredients = document.querySelector('div.col.col-xl-7').childNodes.slice(2, -2).filter(n => n.nodeType === 1)
-        .map(row => {
-            const cols = row.childNodes.filter(n => n.nodeType === 1)
+    const title = document.querySelector('h1').text.trim();
+    const instruction = document
+        .querySelector('footer.blockquote-footer')
+        .parentNode.childNodes.slice(0, -2)
+        .map((node) =>
+            node.textContent.replace(/\n/g, '').replace(/ +/g, ' ').replace(' .', '.').trim()
+        )
+        .filter((l) => l)
+        .join('\n');
+    const image = new URL(
+        document
+            .querySelector('img')
+            .getAttribute('src')
+            .replace(/\.jpg.+/g, '.jpg'),
+        new URL(link)
+    ).toString();
+    const ingredients = document
+        .querySelector('div.col.col-xl-7')
+        .childNodes.slice(2, -2)
+        .filter((n) => n.nodeType === 1)
+        .map((row) => {
+            const cols = row.childNodes.filter((n) => n.nodeType === 1);
             if (cols.length === 2) {
-                return { title: cols.at(1).text.trim() }
+                return { title: cols.at(1).text.trim() };
             }
-            const amount = parseFloat(cols.at(0).text.trim())
-            const title = cols.at(2).text.trim()
-            const unit = cols.at(1).text?.trim()
+            const amount = parseFloat(cols.at(0).text.trim());
+            const title = cols
+                .at(2)
+                .text.trim()
+                .replace(/, Quartered/, '');
+            const unit = cols.at(1).text?.trim();
             return {
                 title,
                 amount: amount > 0 ? amount : undefined,
                 unit: unit.length > 0 ? unit : undefined
-            }
-        })
+            };
+        });
     return {
         title,
         instruction,
@@ -169,7 +176,6 @@ const fetchSingle = async (link: string) => {
     for (const link of links) {
         recipes.push(await fetchSingle(link));
     }
-    const filename = join(argv.output, 'recipes.json');
-    writeFileSync(filename, JSON.stringify(recipes, null, '  '));
-    console.log(`${filename} written`);
+    writeFileSync(argv.output, JSON.stringify(recipes, null, '  '));
+    console.log(`${argv.output} written`);
 })();
