@@ -1,0 +1,194 @@
+[
+	["black strap", "dark rum"],
+	["aged dark rum", "dark rum"],
+	["light rum", "rum"],
+	["dark rum", "rum"],
+	["overproof rum", "rum"],
+	["martinique rhum", "rum"],
+	["151", "rum"],
+
+	["cognac", "brandy"],
+
+	["bourbon", "whiskey"],
+	["rye", "whiskey"],
+	["scotch", "whisky"],
+	["blended scotch", "scotch"],
+
+	["london dry gin", "dry gin"],
+	["dry gin", "gin"],
+	["new american gin", "gin"],
+	["old tom gin", "gin"],
+
+	["champagne", "sparkling wine"],
+
+	["kahlua coffee liqueur", "coffee liqueur"],
+
+	["rye", "rye whiskey"],
+	["rye whiskey", "rye"],
+
+	["lillet blanc", "lillet"],
+
+	["reposado tequila", "tequila"],
+	["blanco tequila", "tequila"],
+
+	["cointreau", "triple sec"],
+
+	["----", "----"],
+
+	["absinthe", "absinthe or pastis"],
+	["pastis", "ansinthe or pastis"],
+
+	["pernod", "pernod / absinthe"],
+	["ansinthe", "pernod / absinthe"],
+
+	["light rum", "aged dark rum or light rum"],
+	["aged dark rum", "aged dark rum or light rum"],
+
+	["black strap", "dark rum (ideally black strap)"],
+	["dark rum", "dark rum (ideally black strap)"],
+
+	["rum", "martinique rhum / rum"],
+	["martinique rhum", "martinique rhum / rum"],
+
+	["overproof rum", "overproof rum / 151"],
+	["151", "overproof rum / 151"],
+
+	["london dry gin", "london dry gin or new american gin"],
+	["new american gin", "london dry gin or new american gin"],
+
+	["brandy", "congac / brandy"],
+	["cognac", "congac / brandy"],
+
+	["brandy", "brandy / cognac"],
+	["cognac", "brandy / cognac"],
+
+	["congac / brandy", "brandy / cognac"],
+	["brandy / cognac", "cognac / brandy"],
+
+	["bourbon", "bourbon whiskey"],
+	["bourbon whiskey", "bourbon"],
+
+	["blended scotch whisky", "blended scotch"],
+	["blended scotch", "blended scotch whisky"],
+
+	["allspice dram", "allspice dram / liqueur"],
+
+	["amaro averna", "amaro averna or similar sweet amaro"],
+	["sweet amaro", "amaro averna or similar sweet amaro"],
+	["amer picon", "amer picon or china-china amer"],
+	["china-china amer", "amer picon or china-china amer"],
+	["amer picon", "amer picon or china china amer"],
+	["china china amer", "amer picon or china china amer"],
+	["china china amer", "china-china amer"],
+	["china-china amer", "china china amer"],
+	["amer picon or china-china amer", "amer picon or china china amer"],
+	["amer picon or china china amer", "amer picon or china-china amer"],
+
+	["champagne", "champagne / sparkling wine"],
+	["sparkling wine", "champagne / sparkling wine"],
+
+	["chambord", "chambord / raspberry liqueur"],
+	["raspberry liqueur", "chambord / raspberry liqueur"],
+
+	["cherry heering", "cherry heering liqueur"],
+	["cherry heering liqueur", "cherry heering"],
+
+	["cherry", "cherry or lemon peel"],
+	["lemon peel", "cherry or lemon peel"],
+
+	["cherry", "cherry or orange peel"],
+	["orange peel", "cherry or orange peel"],
+
+	["cinnamon stick", "cinnamon stick and/or whole star anise"],
+	["whole star anise", "cinnamon stick and/or whole star anise"],
+
+	["banana liqueur", "creme de banane"],
+	["creme de banane", "banana liqueur"],
+
+	["cucumber slice", "cucumber slices"],
+	["cucumber slices", "cucumber slice"],
+
+	["eucalyptus leaf", "eucalyptus leaf and/or banana chip"],
+	["banana chip", "eucalyptus leaf and/or banana chip"],
+
+	["falernum syrup", "falernum"],
+
+	["fernet branca", "fernet"],
+
+	["fresh brewed coffee", "fresh brewed coffee / espresso"],
+	["espresso", "fresh brewed coffee / espresso"],
+
+	["fresh lemon juice", "lemon juice"],
+
+	["fresh lime juice", "lime juice"],
+
+	["fresh orange juice", "orange juice"],
+
+	["fresh pineapple juice", "pineapple juice"],
+
+	["fresh grapefruit juice", "grapefruit juice"],
+
+	["lemon juice", "lemon juice or lime juice"],
+	["lime juice", "lemon juice or lime juice"],
+
+	["grapefruit peel", "grapefruit peel or orange peel"],
+	["orange peel", "grapefruit peel or orange peel"],
+
+	["mint", "mint or cherry"],
+	["cherry", "mint or cherry"],
+
+	["grapefruit peel", "grapefruit peel or orange peel"],
+	["orange peel", "grapefruit peel or orange peel"],
+
+	["orange peel", "orange peel, lemon peel, or cherry"],
+	["lemon peel", "orange peel, lemon peel, or cherry"],
+	["cherry", "orange peel, lemon peel, or cherry"],
+
+	["pineapple wedge", "pineapple wedge or fronds"],
+	["pineapple fronds", "pineapple wedge or fronds"],
+
+	["pineapple wedge", "pineapple wedge, citrus wheel, or pineapple fronds"],
+	["citrus wheel", "pineapple wedge, citrus wheel, or pineapple fronds"],
+	["pineapple fronds", "pineapple wedge, citrus wheel, or pineapple fronds"],
+
+	["half and half", "half and half / cream"],
+	["cream", "half and half / cream"],
+
+	["honey syrup", "honey syrup / mix"],
+
+	["lillet", "lillet or cocchi americano"],
+	["cocchi americano", "lillet or cocchi americano"],
+
+	["long grapefruit peel", "grapefruit peel"],
+	["grapefruit peel", "long grapefruit peel"],
+
+	["madeira", "madeira or sherry"],
+	["sherry", "madeira or sherry"],
+
+	["orange bitters", "orange bitters or angostura bitters"],
+	["angostura bitters", "orange bitters or angostura bitters"],
+
+	["orgeat", "orgeat / almond syrup"],
+	["almond syrup", "orgeat / almond syrup"],
+
+	["reposado tequila", "reposado tequila or blanco tequila"],
+	["blanco tequila", "reposado tequila or blanco tequila"],
+
+	["saline", "saline / salt"],
+	["salt", "saline / salt"],
+
+	["sprig mint", "sprig mint or rosemary"],
+	["sprig rosemary", "sprig mint or rosemary"],
+
+	["sprig mint", "sprig of mint"],
+	["sprig of mint", "sprig mint"],
+
+	["sprig rosemary", "sprig of rosemary"],
+	["sprig of rosemary", "sprig rosemary"],
+
+	["whole egg", "whole egg or egg white"],
+	["egg white", "whole egg or egg white"],
+
+	["very cold champagne", "champagne"],
+	["splash of brandy", "brandy"]
+]

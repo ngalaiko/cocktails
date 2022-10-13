@@ -2,6 +2,7 @@ import yargs from 'yargs';
 import { parse } from 'node-html-parser';
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
+import slugify from 'slugify';
 
 import links from './links.js';
 import type { Recipe } from '../src/lib/recipes/types.js';
@@ -83,18 +84,25 @@ const parseTuxedono = (link: string, html: string): Recipe => {
     const units = ingredientsList
         .querySelectorAll('li > span.amount > span.unit ')
         .map((span) => span.text.trim());
+    const title = document.querySelector('h1.recipe__header-title > a > span').text.trim();
     return {
-        title: document.querySelector('h1.recipe__header-title > a > span').text.trim(),
+        title,
+        slug: slugify(title),
         source: link,
         image: document.querySelector('img.recipe__primary-image').getAttribute('src'),
         ingredients: ingredients.map((ingredient, index) => ({
             title: ingredient
                 .replace('dashes', '')
                 .replace('dash', '')
-                .replace(/(, )?for garnish/, '')
+                .replace(/\(?optional\)?/, '')
+                .replace(/(, )?(for )?garnish/, '')
+                .replace(/(, )?to fill/, '')
+                .replace(/fill( with)?/, '')
                 .replace(/(, )?for muddling/, '')
                 .replace(/passionfruit/, 'passion fruit')
-                .trim(),
+                .trim()
+                .replace(/,$/, '')
+                .replace(/\.$/, ''),
             amount: amounts.at(index),
             unit: ingredient.includes('dashes') || ingredient.includes('dash') ? 'dash' : units.at(index)
         })),
@@ -115,6 +123,7 @@ const parseTuxedono = (link: string, html: string): Recipe => {
 const parseAwedomedrinks = (link: string, html: string): Recipe => {
     const document = parse(html);
     const title = document.querySelector('h1').text.trim();
+
     const instruction = document
         .querySelector('footer.blockquote-footer')
         .parentNode.childNodes.slice(0, -2)
@@ -151,12 +160,18 @@ const parseAwedomedrinks = (link: string, html: string): Recipe => {
                 unit: unit.length > 0 ? unit : undefined
             };
         });
+    const description = document
+        .querySelectorAll('meta')
+        .find((meta) => meta.getAttribute('name') === 'description')
+        ?.getAttribute('content');
     return {
         title,
+        slug: slugify(title),
         instruction,
         image,
         source: link,
-        ingredients
+        ingredients,
+        description
     };
 };
 
