@@ -44,19 +44,3 @@ export const difference = (_this: Recipe, that: Recipe) => {
         )
     };
 };
-
-const allIngredients = list()
-    .flatMap((r) => r.ingredients.map((i) => i.title))
-    .sort((a, b) => a.localeCompare(b))
-    .filter((v, i, s) => s.indexOf(v) === i);
-
-allIngredients
-    .map((ingredient) => ({
-        ingredient,
-        begettableBy: allIngredients
-            .filter((anotherIngredient) => isBegets(anotherIngredient, ingredient))
-            .filter((i) => i !== ingredient)
-    }))
-    .filter(({ begettableBy }) => begettableBy.length === 0)
-    // .filter(({ begets }) => begets.length > 0)
-    .forEach((a) => console.log(a));

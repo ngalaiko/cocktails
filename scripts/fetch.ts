@@ -2,10 +2,21 @@ import yargs from 'yargs';
 import { parse } from 'node-html-parser';
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
-import slugify from 'slugify';
+import slugifyLib from 'slugify';
 
 import links from './links.js';
 import type { Recipe } from '../src/lib/recipes/types.js';
+
+const slugify = (s: string) => {
+    if (s === 'Air Mail') {
+        s = 'Airmail';
+    }
+    return slugifyLib(s, {
+        lower: true,
+        strict: true,
+        trim: true,
+    });
+};
 
 const pwd = dirname(process.argv[1]);
 
