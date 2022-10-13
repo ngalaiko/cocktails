@@ -1,13 +1,33 @@
 [
+	["dark jamaican rum", "dark rum"],
+	["gold jamaican rum", "gold rum"],
+	["gold rum", "rum"],
+	["gosling's black seal rum", "dark rum"],
 	["black strap", "dark rum"],
 	["aged dark rum", "dark rum"],
 	["light rum", "rum"],
 	["dark rum", "rum"],
 	["overproof rum", "rum"],
 	["martinique rhum", "rum"],
+	["demerara rum", "rum"],
 	["151", "rum"],
+	["aged dark rum", "dark rum"],
+	["aged rum", "rum"],
+	["spiced rum", "rum"],
+	["kraken black spiced rum", "dark rum"],
+	["kraken black spiced rum", "spiced rum"],
+	["light puerto rican rum", "light rum"],
+	["gold puerto rican rum", "gold rum"],
+	["dark puerto rican rum", "dark rum"],
+	["black blended rum", "dark rum"],
+
+	["ginger beer", "ginger ale"],
+
+	["fresh brewed coffee", "black coffee"],
+	["espresso", "black coffee"],
 
 	["cognac", "brandy"],
+	["apple brandy", "brandy"],
 
 	["bourbon", "whiskey"],
 	["rye", "whiskey"],
@@ -19,21 +39,34 @@
 	["new american gin", "gin"],
 	["old tom gin", "gin"],
 
+	["brut champagne", "champagne"],
 	["champagne", "sparkling wine"],
 
 	["kahlua coffee liqueur", "coffee liqueur"],
 
-	["rye", "rye whiskey"],
-	["rye whiskey", "rye"],
-
 	["lillet blanc", "lillet"],
 
 	["reposado tequila", "tequila"],
+	["anejo tequila", "tequila"],
 	["blanco tequila", "tequila"],
 
 	["cointreau", "triple sec"],
 
+	["club soda", "soda water"],
+
 	["----", "----"],
+
+	["grated nutmeg", "nutmeg"],
+	["nutmeg", "grated nutmeg"],
+
+	["egg", "whole egg"],
+	["whole egg", "egg"],
+
+	["rye", "rye whiskey"],
+	["rye whiskey", "rye"],
+
+	["rye", "rye or bourbon"],
+	["bourbon", "rye or bourbon"],
 
 	["absinthe", "absinthe or pastis"],
 	["pastis", "ansinthe or pastis"],
@@ -115,6 +148,7 @@
 
 	["fernet branca", "fernet"],
 
+	["unsweetened cold brew coffee", "fresh brewed coffee"],
 	["fresh brewed coffee", "fresh brewed coffee / espresso"],
 	["espresso", "fresh brewed coffee / espresso"],
 
@@ -190,5 +224,8 @@
 	["egg white", "whole egg or egg white"],
 
 	["very cold champagne", "champagne"],
-	["splash of brandy", "brandy"]
+	["splash of brandy", "brandy"],
+
+	["orange twists", "orange twist"],
+	["orange twist", "orange twists"]
 ]
