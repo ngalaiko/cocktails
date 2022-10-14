@@ -28,9 +28,6 @@
 			<p>
 				{data.recipe.instruction}
 			</p>
-			{#each data.recipe.description.split('\n') as p}
-				<p class="col-span-2">{p}</p>
-			{/each}
 		</article>
 
 		<footer>
